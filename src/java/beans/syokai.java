@@ -24,7 +24,7 @@ public class syokai implements Serializable{
     public List<item> getSavelist() {
         return savelist;
     }
-
+//comment
     public void setSavelist(List<item> savelist) {
         this.savelist = savelist;
     }

@@ -1,0 +1,109 @@
+<!--<?xml version='1.0' encoding='UTF-8' ?>-->
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    
+    <!-- DatePicker JavaScript & CSS -->
+    <script type="text/javascript" src="https://code.jquery.com/jquery-1.12.4.js" />
+    <script type="text/javascript" src="https://code.jquery.com/ui/1.12.1/jquery-ui.js" />
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.3.2/jquery.min.js"></script>
+    <h:head>
+        <title>Design画面</title>
+        <h:outputStylesheet library="css" name="design.css" />   
+        <h:outputScript library="javascript" name="design.js" />
+        <script>
+            $(document).ready(function() {
+                $(".datepicker").datepicker({
+                   dateFormat: 'dd MM yy',
+                   changeMonth: true,
+                   changeYear: true,
+                   yearRange: "1960:2050"
+                });
+             });
+        </script>
+        
+    </h:head>
+    <h:body>
+        <div class="head">
+            <h2>登録画面</h2>
+            <h:link class="back" outcome="select">[前の画面へ戻る]</h:link>
+        </div>
+        <h:form>
+            <div class="form">
+            <p>証券番号： 1000 </p>
+                    <p style="margin-top: 10px">保険情報</p>
+                        <div class="class1">
+                           <h:panelGrid class="col-sm-12" columns="2">保険種目:
+                               <h:selectOneMenu value="#{indexBean.syumoku}">     
+                                    <f:selectItem itemValue = "73" itemLabel = "自動車" />
+                                    <f:selectItem itemValue = "71" itemLabel = "傷害" />
+                                </h:selectOneMenu>
+                                保険種類:
+                                <h:selectOneMenu value="#{indexBean.syurui}">     
+                                    <f:selectItem itemValue = "sup" itemLabel = "SUP" />
+                                    <f:selectItem itemValue = "sogo" itemLabel = "傷害総合" />
+                                    <f:selectItem itemValue = "kairyo" itemLabel = "海外飛旅行" />
+                                </h:selectOneMenu>
+                                保険始期: 
+                                <h:inputText value="#{indexBean.sikibi}" styleClass="form-control datepicker" />
+                                保険終期: 
+                                <h:inputText value="#{indexBean.syukibi}" styleClass="form-control datepicker" />
+                                申込日：
+                                <h:inputText value="#{indexBean.mosikomibi}" styleClass="form-control datepicker" />
+                            </h:panelGrid>
+                        </div> 
+
+                    <p>顧客情報</p>
+                        <div class="class2">
+                            <h:panelGrid class="col-sm-12" columns="2">顧客性：
+                                <h:inputText value="#{indexBean.kokyaku_sei}">
+                                    <f:validateLength maximum="8" /></h:inputText>顧客名：
+                                <h:inputText value="#{indexBean.kokyaku_mei}">
+                                    <f:validateLength maximum="8" /></h:inputText>
+                                顧客個人、法人：
+                                <h:selectOneMenu value="#{indexBean.kozin}">     
+                                    <f:selectItem itemValue = "kozin" itemLabel = "個人" />
+                                    <f:selectItem itemValue = "hozin" itemLabel = "法人" />
+                                </h:selectOneMenu>
+                                顧客年齢：
+                                <h:inputText value="#{indexBean.nenrei}">
+                                    <f:validateLength maximum="3" />
+                                </h:inputText>
+                            </h:panelGrid> 
+                        </div>  
+                    <p>保険金情報</p>
+                        <div class="class3">
+                            <h:panelGrid class="col-sm-12" columns="2">死亡保険金：
+                                <h:inputText value="#{indexBean.sibo}">
+                                    <f:validateLength maximum="8" /></h:inputText>後遺障害保険金：
+                                <h:inputText value="#{indexBean.koisyogai}">
+                                    <f:validateLength maximum="8" /></h:inputText>手術保険金：
+                                <h:selectOneMenu value="#{indexBean.syuzyutu}">     
+                                    <f:selectItem itemValue = "2" itemLabel = "無" />
+                                    <f:selectItem itemValue = "1" itemLabel = "有" />
+                                </h:selectOneMenu>
+                                入院日額：
+                                <h:inputText value="#{indexBean.nyuin}">
+                                     <f:validateLength maximum="8" /></h:inputText>通院日額：
+                                 <h:inputText value="#{indexBean.tuin}"><f:validateLength maximum="8" /></h:inputText>
+                            </h:panelGrid> 
+                        </div>
+                    
+            <p>合計保険料：<h:inputText class ="sum" value="#{indexBean.hokenryo}"><f:validateLength maximum="9" /></h:inputText></p>
+            
+            <p><h:commandButton class="edit" value ="保険料計算" action="#{indexBean.design()}" style="margin-right: 40px" />
+               <h:commandButton value ="契約登録" action="#{indexBean.save()}" /></p>
+            </div>
+        </h:form>
+    </h:body>
+</html>
+               
+
+
+                                  
+
+            
+
+

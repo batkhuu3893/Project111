@@ -1,0 +1,30 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+    
+    <h:head>
+        <title>Show List画面</title>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.3.2/jquery.min.js"></script>
+        <h:outputStylesheet library="css" name="showList.css" /> 
+        
+    </h:head>    
+    <h:body>
+            <div class="head">
+                <h2>一覧画面</h2>
+                <h:link class="back" outcome="select">[前の画面へ戻る]</h:link>
+            </div>
+        <h:form>
+            <ui:repeat var="person" value="#{showlist.showList}">
+                    <h:commandButton value = "照会" />
+                    <li>証券番号: <h:outputText value= "#{person.syoken_id}" ></h:outputText></li>
+                    <li>保険始期: <h:outputText value= "#{person.hoken_syumoku}" ></h:outputText></li>
+                    <li>保険種類: <h:outputText value= "#{person.sikibi}" ></h:outputText></li>
+                    <li>保険終期: <h:outputText value= "#{person.syukibi}" ></h:outputText></li>
+                    <li>顧客名: <h:outputText value= "#{person.kokyaku_mei}" ></h:outputText></li>
+                <br />
+            </ui:repeat>
+        </h:form>  
+    </h:body>
+</html>

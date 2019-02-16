@@ -1,0 +1,49 @@
+body {
+    background-color: blanchedalmond;
+    line-height: 1.5em;
+}
+
+div.form{
+    justify-content: center; 
+    display: table;
+    margin: auto;
+}
+
+table.col-sm-12{
+    min-width: 500px;
+    border-style: double;
+    display: flex;
+    flex-grow:1;
+    justify-content: center; 
+}
+
+td{
+    border-style: ridge;
+    max-height: 30px;
+    margin-top: 0px;
+}
+
+tr{
+    max-width: 400px;
+    line-height: 0em;
+}
+
+p{
+    display: flex;
+    flex-grow:1;
+    justify-content: center; 
+    line-height: 0em;
+}
+
+div.head{
+    width:100%;
+    display: flex;
+    align-items: center;
+}
+
+a.back{
+    margin:10px;
+    display: flex;
+    flex-grow:1;
+    justify-content: flex-end;   
+}

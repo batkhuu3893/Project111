@@ -27,6 +27,8 @@ public class MeiboBean {
     private String hoken_syumoku;
     private String kokyaku_mei;
 
+	private  string kk;
+
     private List< Expense> peopleList;
     public void init() {
         
